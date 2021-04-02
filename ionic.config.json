@@ -1,0 +1,7 @@
+{
+  "name": "gp-calculator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
