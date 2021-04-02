@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Semester</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngFor="let c of courseData; let i = index">
+      <ion-card>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-input placeholder="Course name" [(ngModel)]="c.coursename"></ion-input>
+
+              </ion-col>
+              <ion-col>
+                <ion-input placeholder="Course unit" type="number" [(ngModel)]="c.unit"></ion-input>
+
+              </ion-col>
+              <ion-col>
+                <ion-select placeholder="Grade" [(ngModel)]="c.grade">
+                  <ion-select-option *ngFor="let g of grades" [value]="g">{{g}}</ion-select-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-button float="right" color="danger" size="small" (click)="remove(i)">Remove</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ion-card>
+      <ion-card-content>
+        <h3>Calculated GPA: <span style="float: right">{{calculatedGP}}</span> </h3>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="block">
+      <ion-button expand="full" color="medium" (click)="add()">Add Course</ion-button>
+      <ion-button expand="full" color="secondary" (click)="calculate()">Calculate</ion-button>
+      </div>
+</ion-content>
+
+<ion-footer>
+  <div class="block">
+    <ion-button size="large" expand="full" color="primary" (click)="save()">Save</ion-button>
+  </div>
+</ion-footer>
